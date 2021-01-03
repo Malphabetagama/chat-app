@@ -1,11 +1,9 @@
-import { Notification as Toast } from 'rsuite';
 import firebase from 'firebase/app';
 import 'firebase/auth';
 import 'firebase/database';
 import 'firebase/storage';
 import 'firebase/messaging';
 import 'firebase/functions';
-import { isLocalhost } from './helpers';
 
 const config = {
     apiKey: "AIzaSyDZ8eT0TYVDvVHdVQhIve4Cq-ZxI7ArHj8",
@@ -17,26 +15,9 @@ const config = {
     appId: "1:35353350757:web:1d7db6b1a9555eebbaec8c"
 };
 
-export const fcmVapidKey =
-  'BLs_I-HQyrAuUJJh8H3U0vtHGhVhXLMqoVoomeNL90GMKm0-o7sSoN9CJYRiBAVz-Yi7ZAni8mKateJfDwodTnw';
 
 const app = firebase.initializeApp(config);
 export const auth = app.auth();
 export const database = app.database();
 export const storage = app.storage();
 export const functions = app.functions('us-central1');
-
-export const messaging = firebase.messaging.isSupported()
-  ? app.messaging()
-  : null;
-
-if (messaging) {
-  messaging.onMessage(({ notification }) => {
-    const { title, body } = notification;
-    Toast.info({ title, description: body, duration: 0 });
-  });
-}
-
-if (isLocalhost) {
-  functions.useEmulator('localhost', 5001);
-}

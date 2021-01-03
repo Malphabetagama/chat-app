@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext, useEffect } from 'react';
 import firebase from 'firebase/app';
-import { auth, database, messaging, fcmVapidKey } from '../misc/firebase';
+import { auth, database, messaging } from '../misc/firebase';
 
 export const isOfflineForDatabase = {
   state: 'offline',

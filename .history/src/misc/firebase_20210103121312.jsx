@@ -17,8 +17,6 @@ const config = {
     appId: "1:35353350757:web:1d7db6b1a9555eebbaec8c"
 };
 
-export const fcmVapidKey =
-  'BLs_I-HQyrAuUJJh8H3U0vtHGhVhXLMqoVoomeNL90GMKm0-o7sSoN9CJYRiBAVz-Yi7ZAni8mKateJfDwodTnw';
 
 const app = firebase.initializeApp(config);
 export const auth = app.auth();
